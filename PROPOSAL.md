@@ -14,6 +14,8 @@ The dataset I will be using for the project is a kaggle dataset and you can find
 
 -   categories.json – maps each podcast to its genre/category
 
+For the initial development, I am planning to use a smaller part of this large dataset, as it is a huge data.
+
 ## Methodology:
 
 ### Data Collection & Preprocessing:
