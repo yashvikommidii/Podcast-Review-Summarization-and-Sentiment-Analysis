@@ -1,11 +1,86 @@
 ***Introduction:***
+
 Podcasts are a great way for people to learn, get inspired, or just relax.
+
 With so many listeners tuning in, a lot of them leave reviews to share what they think. 
+
 But going through all these reviews one by one can take a lot of time.
+
 That’s where this project comes in. 
+
 We used natural language processing (NLP) to automatically read, summarize, and understand podcast reviews. 
+
 Instead of reading hundreds of long reviews, we created short summaries using two methods—TextRank and T5—that capture the main points.
+
 We also used two sentiment analysis tools (VADER and BERT) to figure out if a review is positive, negative, or neutral. 
+
 By combining summaries with emotions from the reviews, we get a better idea of how people feel about different podcasts.
 
 This project helps podcast creators and platforms like Apple Podcasts or Spotify quickly understand listener feedback and improve their content.
+
+***Dataset***
+
+The dataset we have used is from Kaggle: Podcast Reviews Dataset
+(https://www.kaggle.com/datasets/thoughtvector/podcastreviews)
+
+It includes:
+
+- **reviews.json**: user-submitted reviews for various podcasts
+- **podcasts.json**: podcast metadata (title, author, etc.)
+- **categories.json**: category info for each podcast
+
+So I have performed cleaning and pre processing on dataset and have produced merged dataset. 
+The code to create the final merged dataset is present in the code folder.
+
+
+**Methods**
+
+The project includes the following:
+
+1. **Preprocessing**
+
+We cleaned and merged three JSON files containing reviews, podcast metadata, and categories. 
+Then, we removed duplicates and missing data, and normalized the review text to get it ready for analysis.
+
+2. **Summarization**
+
+We have used two techniques to create short summaries of grouped reviews:
+TextRank pulls out the most important sentences.
+T5 Transformer generates human-like summaries that rephrase the original text.
+
+
+3. **Sentiment Analysis**
+
+We applied two models to detect if a review is positive, neutral, or negative:
+VADER: a lightweight rule-based model good for short texts.
+BERT: a deep learning model that understands context and tone better.
+
+4. **Valuation**
+
+We compared BERT's sentiment labels with review ratings to measure how accurate it was using metrics like precision, recall, F1-score, and a confusion matrix. 
+We also checked how often VADER and BERT agreed.
+
+5. **Results and Visualisation:** 
+
+After analyzing the reviews, we were able to summarize and understand what listeners really feel about different podcasts.
+
+a. We used TextRank and T5 to generate short summaries that capture the main points of long reviews.
+
+b. Sentiment analysis using VADER and BERT helped us figure out whether reviews were mostly positive, neutral, or negative.
+
+c. A pie chart showed how often the two sentiment models agreed with each other.
+
+d. Bar plots helped us see which podcast categories had the best average ratings.
+
+e. We also created word clouds for each type of sentiment to show what words popped up the most in positive, negative, and neutral reviews.
+
+f. Finally, we compared the length of full reviews with their summaries to see how much information we could condense while still keeping the meaning.
+All these visuals helped make sense of the data and gave a quick view of how listeners feel about their favorite shows.
+
+
+**Limitations & Future Work**
+
+Although the original dataset contains over 2 million reviews, after merging with podcast and category metadata, 
+the number of usable records significantly dropped due to missing or unmatched entries. 
+In future work, we could explore more robust data integration methods, fill in missing metadata, or enrich the dataset with external sources to improve coverage. 
+We could also experiment with multilingual sentiment models and more refined summarization techniques.
