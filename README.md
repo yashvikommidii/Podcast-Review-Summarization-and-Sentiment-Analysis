@@ -39,3 +39,7 @@ To install the required packages, run:
 
 ```bash
 pip install -r requirements.txt
+`````
+
+
+I have runned the whole code in VScode ipynb file. 
